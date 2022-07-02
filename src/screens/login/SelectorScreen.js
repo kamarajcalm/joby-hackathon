@@ -20,8 +20,11 @@ import {
 } from "native-base";
 const {height,width} = Dimensions.get("window")
 import { themeColor } from "../../config";
+import { useNavigation } from "@react-navigation/native";
+import { textStyles } from "../../styles";
 
 const SelectorScreen = () => {
+    const navigation = useNavigation()
   return (
     <View flex={1} style={{ backgroundColor: themeColor }}>
       <View flex={0.4} style={styles.front}>
@@ -36,11 +39,25 @@ const SelectorScreen = () => {
       </View>
       <View flex={0.6} style={styles.footer}>
         <Center mt={"16"}>
-          <Pressable style={styles.button} onPress={() => {}}>
-            <Text style={{ color: "#fff" }}>Job Seeker</Text>
+          <Pressable
+            style={styles.button}
+            onPress={() => {
+              navigation.navigate("SignUpScreen");
+            }}
+          >
+            <Text style={[textStyles.normal, { color: "#fff" }]}>
+              Job Seeker
+            </Text>
           </Pressable>
-          <Pressable style={styles.button}>
-            <Text style={{ color: "#fff" }}>Recruiter</Text>
+          <Pressable
+            style={styles.button}
+            onPress={() => {
+              navigation.navigate("SignUpScreen");
+            }}
+          >
+            <Text style={[textStyles.normal, { color: "#fff" }]}>
+              Recruiter
+            </Text>
           </Pressable>
         </Center>
       </View>

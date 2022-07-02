@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import React,{useEffect} from "react";
 import {ActivityIndicator,StyleSheet,View} from 'react-native'
 import { CommonActions } from "@react-navigation/native";
+import { themeColor } from "../config";
 
 const DefaultScreen = ()=>{
   const navigation = useNavigation()
@@ -19,7 +20,7 @@ const DefaultScreen = ()=>{
   },[])
   return (
     <View style={styles.container}>
-      <ActivityIndicator size={"large"} color={"red"}/>
+      <ActivityIndicator size={"large"} color={themeColor}/>
     </View>
   )
 }
