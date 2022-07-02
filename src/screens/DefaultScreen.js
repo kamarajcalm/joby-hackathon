@@ -3,7 +3,7 @@ import React,{useEffect} from "react";
 import {ActivityIndicator,StyleSheet,View} from 'react-native'
 import { CommonActions } from "@react-navigation/native";
 import { themeColor } from "../config";
-
+import { StatusBar } from "expo-status-bar";
 const DefaultScreen = ()=>{
   const navigation = useNavigation()
   useEffect(()=>{
@@ -20,9 +20,10 @@ const DefaultScreen = ()=>{
   },[])
   return (
     <View style={styles.container}>
-      <ActivityIndicator size={"large"} color={themeColor}/>
+      <ActivityIndicator size={"large"} color={themeColor} />
+      <StatusBar style="light" backgroundColor={themeColor}/>
     </View>
-  )
+  );
 }
 
 
