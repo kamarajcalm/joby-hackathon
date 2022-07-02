@@ -12,7 +12,7 @@ const DefaultScreen = ()=>{
          index: 0,
          routes: [
            {
-             name: "IntroScreen",
+             name: "TabNavigator",
            },
          ],
        })

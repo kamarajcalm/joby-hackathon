@@ -140,7 +140,11 @@ const OtpScreen = () => {
             </Pressable>
           </View>
 
-          <Pressable style={styles.button}>
+          <Pressable style={styles.button} 
+           onPress={()=>{
+            navigation.navigate("TabNavigator");
+           }}
+          >
             <Text style={[textStyles.normal,{color:"#fff"}]}>Verify OTP</Text>
           </Pressable>
         </Center>

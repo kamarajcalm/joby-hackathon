@@ -10,6 +10,7 @@ import IntroScreen from '../screens/login/IntroScreen';
 import SignUpScreen from '../screens/login/SignUpScreen';
 import OtpScreen from "../screens/login/OtpScreen";
 import ForgotPassword from "../screens/login/ForgotPassword";
+import TabNavigator from './TabNavigator';
 
 
 const Navigation  = ()=>{
@@ -45,6 +46,11 @@ const Navigation  = ()=>{
           <Stack.Screen
             name="ForgotPassword"
             component={ForgotPassword}
+            options={{ headerShown: false, animation: "slide_from_right" }}
+          />
+          <Stack.Screen
+            name="TabNavigator"
+            component={TabNavigator}
             options={{ headerShown: false, animation: "slide_from_right" }}
           />
         </Stack.Navigator>
