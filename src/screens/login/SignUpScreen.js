@@ -46,7 +46,7 @@ const SignUpScreen = () => {
     //   return setvalidEmail(false);
     // }
 
-     navigation.navigate("OtpScreen")
+     navigation.navigate("OtpScreen");
   }
   return (
     <ScrollView>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ActivityIndicator, Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import {
   Box,
   Text,

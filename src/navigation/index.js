@@ -18,11 +18,6 @@ const Navigation  = ()=>{
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
-            name="ForgotPassword"
-            component={ForgotPassword}
-            options={{ headerShown: false, animation: "slide_from_right" }}
-          />
-          <Stack.Screen
             name="DefaultScreen"
             component={DefaultScreen}
             options={{ headerShown: false, animation: "slide_from_right" }}
@@ -45,6 +40,11 @@ const Navigation  = ()=>{
           <Stack.Screen
             name="IntroScreen"
             component={IntroScreen}
+            options={{ headerShown: false, animation: "slide_from_right" }}
+          />
+          <Stack.Screen
+            name="ForgotPassword"
+            component={ForgotPassword}
             options={{ headerShown: false, animation: "slide_from_right" }}
           />
         </Stack.Navigator>
