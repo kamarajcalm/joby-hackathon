@@ -11,7 +11,9 @@ import SignUpScreen from '../screens/login/SignUpScreen';
 import LoginScreen from "../screens/login/LoginScreen";
 import OtpScreen from "../screens/login/OtpScreen";
 import ForgotPassword from "../screens/login/ForgotPassword";
-import TabNavigator from './TabNavigator';
+import TabNavigator from './TabNavigator'
+import AddPost from '../screens/AddPost'
+
 
 const Navigation  = ()=>{
   return (
@@ -57,6 +59,11 @@ const Navigation  = ()=>{
             name="TabNavigator"
             component={TabNavigator}
             options={{ headerShown: false, animation: "slide_from_right" }}
+          />
+          <Stack.Screen
+            name="AddPost"
+            component={AddPost}
+            options={{ headerShown: false, animation: "fade_from_bottom" }}
           />
         </Stack.Navigator>
       </NavigationContainer>
