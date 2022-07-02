@@ -6,6 +6,7 @@ const Stack = createNativeStackNavigator();
 import { SafeAreaView } from "react-native";
 import LoginScreen from '../screens/login/LoginScreen';
 import SelectorScreen from '../screens/login/SelectorScreen';
+import IntroScreen from '../screens/login/IntroScreen';
 const Navigation  = ()=>{
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -24,6 +25,11 @@ const Navigation  = ()=>{
           <Stack.Screen
             name="SelectorScreen"
             component={SelectorScreen}
+            options={{ headerShown: false, animation: "slide_from_right" }}
+          />
+          <Stack.Screen
+            name="IntroScreen"
+            component={IntroScreen}
             options={{ headerShown: false, animation: "slide_from_right" }}
           />
         </Stack.Navigator>

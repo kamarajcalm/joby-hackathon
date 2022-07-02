@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import React,{useEffect} from "react";
 import {ActivityIndicator,StyleSheet,View} from 'react-native'
 import { CommonActions } from "@react-navigation/native";
+
 const DefaultScreen = ()=>{
   const navigation = useNavigation()
   useEffect(()=>{
@@ -10,7 +11,7 @@ const DefaultScreen = ()=>{
          index: 0,
          routes: [
            {
-             name: "SelectorScreen",
+             name: "IntroScreen",
            },
          ],
        })
