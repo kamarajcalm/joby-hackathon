@@ -8,9 +8,9 @@ import { SafeAreaView } from "react-native";
 import SelectorScreen from '../screens/login/SelectorScreen';
 import IntroScreen from '../screens/login/IntroScreen';
 import SignUpScreen from '../screens/login/SignUpScreen';
+import LoginScreen from "../screens/login/LoginScreen";
 import OtpScreen from "../screens/login/OtpScreen";
 import ForgotPassword from "../screens/login/ForgotPassword";
-
 
 const Navigation  = ()=>{
   return (
@@ -25,6 +25,11 @@ const Navigation  = ()=>{
           <Stack.Screen
             name="SignUpScreen"
             component={SignUpScreen}
+            options={{ headerShown: false, animation: "slide_from_right" }}
+          />
+          <Stack.Screen
+            name="LoginScreen"
+            component={LoginScreen}
             options={{ headerShown: false, animation: "slide_from_right" }}
           />
           <Stack.Screen

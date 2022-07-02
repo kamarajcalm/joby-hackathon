@@ -28,7 +28,7 @@ import { useNavigation } from "@react-navigation/native";
 import useChangeEffect from "../../hooks/useChangeEffect";
 
 const {height,width} = Dimensions.get("window")
-const SignUpScreen = () => {
+const LoginScreen = () => {
   const navigation =  useNavigation()
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -48,8 +48,6 @@ const SignUpScreen = () => {
 
      navigation.navigate("OtpScreen");
   }
-   
- 
   return (
     <ScrollView>
       <Center mt={"10"}>
@@ -62,7 +60,7 @@ const SignUpScreen = () => {
           style={{ height: height * 0.38, width: width }}
         />
         <View mt={"4"}>
-          <Text style={[textStyles.bold, { fontSize: 20 }]}>Sign Up</Text>
+          <Text style={[textStyles.bold, { fontSize: 20 }]}>Login</Text>
         </View>
         <Box alignItems="center">
           <Input
@@ -86,7 +84,7 @@ const SignUpScreen = () => {
             onChangeText={(value) => setEmail(value)}
             style={[textStyles.normal]}
             mx="3"
-            placeholder="Enter Your Email Id"
+            placeholder="Enter Your Password"
             w="80%"
             mt={"4"}
           />
@@ -97,28 +95,27 @@ const SignUpScreen = () => {
               </Text>
             </View>
           )}
+           <View mt={"2"}  >
+            
+            <Pressable ml={"160"}
+             onPress={()=>{
+                navigation.navigate("ForgotPassword");
+               }}
+             >
+              <Text style={[textStyles.normal, { color: themeColor }]}>
+                Forgot Password
+              </Text>
+            </Pressable>
+          </View>
           <Pressable style={styles.button} mt={"4"}
            onPress={()=>{
             signUp()
            }}
           >
-            <Text style={[textStyles.normal, { color: "#fff" }]}>SIGN UP</Text>
+            <Text style={[textStyles.normal, { color: "#fff" }]}>Verify OTP</Text>
           </Pressable>
 
-          <View mt={"4"} flexDirection={"row"}>
-            <View>
-              <Text style={[textStyles.normal]}>Already Have An Account ?</Text>
-            </View>
-            <Pressable ml={"4"}
-             onPress = {()=>{
-              navigation.navigate("LoginScreen");
-             }}
-            >
-              <Text style={[textStyles.normal, { color: themeColor }]}>
-                Login
-              </Text>
-            </Pressable>
-          </View>
+         
           <View mt={"4"} flexDirection={"row"}>
             <View alignItems={"center"} justifyContent={"center"}>
               <Divider style={{ width: width * 0.2 }}></Divider>
@@ -182,4 +179,4 @@ const styles = StyleSheet.create({
     borderRadius:10
   }
 });
-export default SignUpScreen;
+export default LoginScreen;

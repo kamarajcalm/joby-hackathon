@@ -39,12 +39,12 @@ const ForgotPassword = () => {
     setvalidEmail(true);
   }, [email, phoneNumber]);
   const signUp = () => {
-    if (!checkPhone(phoneNumber)) {
-      return setValidPhone(false);
-    }
-    if (!checkEmail(email)) {
-      return setValidPhone(false);
-    }
+    // if (!checkPhone(phoneNumber)) {
+    //   return setValidPhone(false);
+    // }
+    // if (!checkEmail(email)) {
+    //   return setValidPhone(false);
+    // }
 
     navigation.navigate("OtpScreen");
   };
