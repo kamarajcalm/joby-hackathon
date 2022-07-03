@@ -16,6 +16,8 @@ import AddPost from '../screens/AddPost'
 import ViewJob from "../screens/ViewJob";
 import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
+import Notifications from '../screens/Notifications';
+import MyProfile from '../screens/MyProfile';
 const Navigation  = ()=>{
   return (
     <SafeAreaView
@@ -69,12 +71,22 @@ const Navigation  = ()=>{
           <Stack.Screen
             name="AddPost"
             component={AddPost}
-            options={{ headerShown: false, animation: "fade_from_bottom" }}
+            options={{ headerShown: false, animation: "slide_from_right" }}
           />
           <Stack.Screen
             name="ViewJob"
             component={ViewJob}
-            options={{ headerShown: false, animation: "fade_from_bottom" }}
+            options={{ headerShown: false, animation: "slide_from_right" }}
+          />
+          <Stack.Screen
+            name="Notifications"
+            component={Notifications}
+            options={{ headerShown: false, animation: "slide_from_right" }}
+          />
+          <Stack.Screen
+            name="MyProfile"
+            component={MyProfile}
+            options={{ headerShown: false, animation: "slide_from_right" }}
           />
         </Stack.Navigator>
       </NavigationContainer>

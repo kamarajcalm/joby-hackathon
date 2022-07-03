@@ -10,7 +10,8 @@ import {
   Box,
   Select,
   CheckIcon,
-  Center
+  Center,
+  Circle
 } from "native-base";
 import { themeColor } from "../config";
 import { textStyles } from "../styles";
@@ -24,7 +25,10 @@ import { Ionicons, MaterialIcons, EvilIcons } from "@expo/vector-icons";
  ];
  import { TabView,  TabBar } from "react-native-tab-view";
 import Feeds from "../components/Feeds";
+import { useNavigation } from "@react-navigation/native";
+
 const Home  =()=>{
+    const navigation = useNavigation()
     let [filter, setFilter] = React.useState(null);
     let [city, setCity] = React.useState(null);
     const [index,setIndex] = useState(0)
@@ -39,10 +43,7 @@ const Home  =()=>{
           }
         };
   return (
-    <View
-      flex={1}
-     
-    >
+    <View flex={1}>
       <StatusBar style="light" backgroundColor={themeColor} />
       <View style={styles.header}>
         <View>
@@ -51,10 +52,22 @@ const Home  =()=>{
           </Text>
         </View>
         <View flexDirection={"row"}>
-          <Pressable mr={"5"}>
+          <Pressable
+            mr={"5"}
+            onPress={() => {
+              navigation.navigate("Notifications");
+            }}
+          >
             <Ionicons name="notifications" size={24} color="#fff" />
+            <View style={styles.round}>
+              <Text style={[textStyles.normal, { color: "#fff" }]}>2</Text>
+            </View>
           </Pressable>
-          <Pressable>
+          <Pressable
+            onPress={() => {
+              navigation.navigate("MyProfile");
+            }}
+          >
             <Ionicons name="person" size={24} color="#fff" />
           </Pressable>
         </View>
@@ -153,7 +166,7 @@ const Home  =()=>{
         navigationState={{ index, routes }}
         renderScene={renderScene}
         onIndexChange={(index) => {
-           setIndex(index)
+          setIndex(index);
         }}
         initialLayout={{ width }}
         renderTabBar={(props) => (
@@ -161,10 +174,12 @@ const Home  =()=>{
             {...props}
             renderLabel={({ route, focused, color }) => (
               <Text
-                style={[textStyles.normal,{
-                  color: focused ? themeColor : "gray",
-                 
-                }]}
+                style={[
+                  textStyles.normal,
+                  {
+                    color: focused ? themeColor : "gray",
+                  },
+                ]}
               >
                 {route.title}
               </Text>
@@ -184,14 +199,25 @@ const Home  =()=>{
   );
 }
 
-const styles= StyleSheet.create({
-    header:{
-        height:height*0.1,
-        backgroundColor:themeColor,
-        flexDirection:"row",
-        alignItems:"center",
-        justifyContent:"space-between",
-        paddingHorizontal:20
-    }
-})
+const styles = StyleSheet.create({
+  header: {
+    height: height * 0.1,
+    backgroundColor: themeColor,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+  },
+  round:{
+    position:"absolute",
+    height:20,
+    width:20,
+    alignItems:"center",
+    justifyContent:"center",
+    borderRadius:10,
+    backgroundColor:"red",
+    right:-10,
+    top:-3
+  }
+});
 export default Home;
