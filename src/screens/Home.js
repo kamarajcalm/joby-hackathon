@@ -41,9 +41,7 @@ const Home  =()=>{
   return (
     <View
       flex={1}
-      style={{
-        marginTop: Platform.OS == "android" ? Constants.statusBarHeight : 0,
-      }}
+     
     >
       <StatusBar style="light" backgroundColor={themeColor} />
       <View style={styles.header}>

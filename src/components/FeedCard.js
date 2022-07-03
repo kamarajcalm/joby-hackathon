@@ -12,8 +12,10 @@ import {StyleSheet,Dimensions} from "react-native";
 import { textStyles } from '../styles';
 import { themeColor } from '../config';
 const {height,width} = Dimensions.get("window");
+import { useNavigation } from "@react-navigation/native";
 import { Entypo, AntDesign, MaterialIcons } from "@expo/vector-icons";
 const FeedCard = ({data})=>{
+    const navigation = useNavigation();
   return (
     <View
       shadow={"1"}
@@ -59,40 +61,47 @@ const FeedCard = ({data})=>{
           </Pressable>
         </View>
       </View>
-      <View style={styles.content}>
-        <View flexDirection={"row"} flex={1}>
-          <View flex={0.2} justifyContent={"center"} alignItems={"center"}>
-            <Entypo name="shop" size={24} color="#ffd11a" />
+      <Pressable
+        flexDirection={"column"}
+        onPress={() => {
+          navigation.navigate("ViewJob");
+        }}
+      >
+        <View style={styles.content}>
+          <View flexDirection={"row"} flex={1}>
+            <View flex={0.2} justifyContent={"center"} alignItems={"center"}>
+              <Entypo name="shop" size={24} color="#ffd11a" />
+            </View>
+            <View flex={0.8} justifyContent={"center"}>
+              <Text style={[textStyles.normal]}>{data.company}</Text>
+            </View>
           </View>
-          <View flex={0.8} justifyContent={"center"}>
-            <Text style={[textStyles.normal]}>{data.company}</Text>
+          <View flexDirection={"row"} flex={1}>
+            <View flex={0.2} justifyContent={"center"} alignItems={"center"}>
+              <Entypo name="star" size={24} color="#ffd11a" />
+            </View>
+            <View flex={0.8} justifyContent={"center"}>
+              <Text style={[textStyles.normal]}>{data.rating}</Text>
+            </View>
+          </View>
+          <View flexDirection={"row"} flex={1}>
+            <View flex={0.2} justifyContent={"center"} alignItems={"center"}>
+              <Entypo name="location" size={24} color="#ffd11a" />
+            </View>
+            <View flex={0.8} justifyContent={"center"}>
+              <Text style={[textStyles.normal]}>{data.Address}</Text>
+            </View>
+          </View>
+          <View flexDirection={"row"} flex={1}>
+            <View flex={0.2} justifyContent={"center"} alignItems={"center"}>
+              <MaterialIcons name="date-range" size={24} color="#ffd11a" />
+            </View>
+            <View flex={0.8} justifyContent={"center"}>
+              <Text style={[textStyles.normal]}>{data.date}</Text>
+            </View>
           </View>
         </View>
-        <View flexDirection={"row"} flex={1}>
-          <View flex={0.2} justifyContent={"center"} alignItems={"center"}>
-            <Entypo name="star" size={24} color="#ffd11a" />
-          </View>
-          <View flex={0.8} justifyContent={"center"}>
-            <Text style={[textStyles.normal]}>{data.rating}</Text>
-          </View>
-        </View>
-        <View flexDirection={"row"} flex={1}>
-          <View flex={0.2} justifyContent={"center"} alignItems={"center"}>
-            <Entypo name="location" size={24} color="#ffd11a" />
-          </View>
-          <View flex={0.8} justifyContent={"center"}>
-            <Text style={[textStyles.normal]}>{data.Address}</Text>
-          </View>
-        </View>
-        <View flexDirection={"row"} flex={1}>
-          <View flex={0.2} justifyContent={"center"} alignItems={"center"}>
-            <MaterialIcons name="date-range" size={24} color="#ffd11a" />
-          </View>
-          <View flex={0.8} justifyContent={"center"}>
-            <Text style={[textStyles.normal]}>{data.date}</Text>
-          </View>
-        </View>
-      </View>
+      </Pressable>
     </View>
   );
 }

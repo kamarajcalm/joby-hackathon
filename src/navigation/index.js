@@ -13,11 +13,17 @@ import OtpScreen from "../screens/login/OtpScreen";
 import ForgotPassword from "../screens/login/ForgotPassword";
 import TabNavigator from './TabNavigator'
 import AddPost from '../screens/AddPost'
-
-
+import ViewJob from "../screens/ViewJob";
+import { StatusBar } from "expo-status-bar";
+import Constants from "expo-constants";
 const Navigation  = ()=>{
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        marginTop: Platform.OS == "android" ? Constants.statusBarHeight : 0,
+      }}
+    >
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
@@ -63,6 +69,11 @@ const Navigation  = ()=>{
           <Stack.Screen
             name="AddPost"
             component={AddPost}
+            options={{ headerShown: false, animation: "fade_from_bottom" }}
+          />
+          <Stack.Screen
+            name="ViewJob"
+            component={ViewJob}
             options={{ headerShown: false, animation: "fade_from_bottom" }}
           />
         </Stack.Navigator>
