@@ -68,7 +68,7 @@ const TabNavigator = ()=>{
                   { color: focused ? themeColor : "grey", fontSize: 10 },
                 ]}
               >
-                Favaurites
+                Favourites
               </Text>
             );
           },
@@ -100,6 +100,7 @@ const TabNavigator = ()=>{
               </Text>
             );
           },
+          tabBarBadge:"2"
         }}
       />
       <Tab.Screen

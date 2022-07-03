@@ -18,6 +18,7 @@ import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
 import Notifications from '../screens/Notifications';
 import MyProfile from '../screens/MyProfile';
+import ChatScreen from '../screens/ChatScreen';
 const Navigation  = ()=>{
   return (
     <SafeAreaView
@@ -86,6 +87,11 @@ const Navigation  = ()=>{
           <Stack.Screen
             name="MyProfile"
             component={MyProfile}
+            options={{ headerShown: false, animation: "slide_from_right" }}
+          />
+          <Stack.Screen
+            name="ChatScreen"
+            component={ChatScreen}
             options={{ headerShown: false, animation: "slide_from_right" }}
           />
         </Stack.Navigator>

@@ -4,44 +4,49 @@ import FeedCard from "./FeedCard";
 const data = [
   {
     pic: "https://i.pinimg.com/564x/18/8b/da/188bda5d34b611b1964a78b9b50453f6.jpg",
-    name:"Tele Caller",
-    type:"(Work From Home)",
-    company:"Orange tech",
-    rating:4.5,
-    Address:"Coimabtore, TamilNadu",
-    date:"02-08-2022 4 days ago"
+    name: "Tele Caller",
+    type: "(Work From Home)",
+    company: "Orange tech",
+    rating: 4.5,
+    Address: "Coimabtore, TamilNadu",
+    date: "02-08-2022 4 days ago",
+    liked: false,
   },
   {
     pic: "https://i.pinimg.com/564x/18/8b/da/188bda5d34b611b1964a78b9b50453f6.jpg",
-    name:"TeleCaller",
-    type:"(Work From Home)",
-    company:"Orange tech",
-    rating:4.5,
-    Address:"Coimabtore, TamilNadu",
-    date:"02-08-2022 4 days ago"
+    name: "TeleCaller",
+    type: "(Work From Home)",
+    company: "Orange tech",
+    rating: 4.5,
+    Address: "Coimabtore, TamilNadu",
+    date: "02-08-2022 4 days ago",
+    liked: false,
   },
   {
     pic: "https://i.pinimg.com/564x/18/8b/da/188bda5d34b611b1964a78b9b50453f6.jpg",
-    name:"TeleCaller",
-    type:"(Work From Home)",
-    company:"Orange tech",
-    rating:4.5,
-    Address:"Coimabtore, TamilNadu",
-    date:"02-08-2022 4 days ago"
+    name: "TeleCaller",
+    type: "(Work From Home)",
+    company: "Orange tech",
+    rating: 4.5,
+    Address: "Coimabtore, TamilNadu",
+    date: "02-08-2022 4 days ago",
+    liked: false,
   },
   {
     pic: "https://i.pinimg.com/564x/18/8b/da/188bda5d34b611b1964a78b9b50453f6.jpg",
-    name:"TeleCaller",
-    type:"(Work From Home)",
-    company:"Orange tech",
-    rating:4.5,
-    Address:"Coimabtore, TamilNadu",
-    date:"02-08-2022 4 days ago"
+    name: "TeleCaller",
+    type: "(Work From Home)",
+    company: "Orange tech",
+    rating: 4.5,
+    Address: "Coimabtore, TamilNadu",
+    date: "02-08-2022 4 days ago",
+    liked: false,
   },
 ];
 const Feeds = () => {
   return (
     <FlatList
+     contentContainerStyle={{paddingBottom:100}}
       data={data}
       keyExtractor={(item, index) => index.toString()}
       renderItem={({ item, index }) => {

@@ -41,7 +41,9 @@ const ViewJob  =()=>{
           >
             <FontAwesome name="angle-left" size={40} color="#fff" />
           </Pressable>
-
+          <View>
+             <Text style={[textStyles.normal,{color:'#fff',fontSize:18}]}>Job Details</Text>
+          </View>
           <View flexDirection={"row"}>
             <Pressable mr={"5"}>
               <AntDesign name="heart" size={24} color="red" />

@@ -1,4 +1,4 @@
-import React from  'react';
+import React, { useState } from  'react';
 import {
   View,
   Box,
@@ -16,6 +16,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Entypo, AntDesign, MaterialIcons } from "@expo/vector-icons";
 const FeedCard = ({data})=>{
     const navigation = useNavigation();
+    const [dataa,setDataa] = useState(data)
   return (
     <View
       shadow={"1"}
@@ -45,19 +46,26 @@ const FeedCard = ({data})=>{
             <Text
               style={[textStyles.normal, { color: themeColor, fontSize: 20 }]}
             >
-              {data.name}
+              {dataa.name}
             </Text>
           </View>
           <View>
-            <Text style={{ color: "gray" }}>{data.type}</Text>
+            <Text style={{ color: "gray" }}>{dataa.type}</Text>
           </View>
         </View>
         <View flex={0.2} alignItems={"center"} justifyContent={"center"}>
           <Pressable>
             <Entypo name="share" size={24} color="#000" />
           </Pressable>
-          <Pressable mt={"2"}>
-            <AntDesign name="heart" size={24} color="red" />
+          <Pressable mt={"2"} 
+           onPress={()=>{
+            setDataa({
+                ...dataa,
+                liked:!dataa.liked
+            })
+           }}
+          >
+            <AntDesign name="heart" size={24} color={dataa.liked?"red":"grey"} />
           </Pressable>
         </View>
       </View>
@@ -73,7 +81,7 @@ const FeedCard = ({data})=>{
               <Entypo name="shop" size={24} color="#ffd11a" />
             </View>
             <View flex={0.8} justifyContent={"center"}>
-              <Text style={[textStyles.normal]}>{data.company}</Text>
+              <Text style={[textStyles.normal]}>{dataa.company}</Text>
             </View>
           </View>
           <View flexDirection={"row"} flex={1}>
@@ -81,7 +89,7 @@ const FeedCard = ({data})=>{
               <Entypo name="star" size={24} color="#ffd11a" />
             </View>
             <View flex={0.8} justifyContent={"center"}>
-              <Text style={[textStyles.normal]}>{data.rating}</Text>
+              <Text style={[textStyles.normal]}>{dataa.rating}</Text>
             </View>
           </View>
           <View flexDirection={"row"} flex={1}>
@@ -89,7 +97,7 @@ const FeedCard = ({data})=>{
               <Entypo name="location" size={24} color="#ffd11a" />
             </View>
             <View flex={0.8} justifyContent={"center"}>
-              <Text style={[textStyles.normal]}>{data.Address}</Text>
+              <Text style={[textStyles.normal]}>{dataa.Address}</Text>
             </View>
           </View>
           <View flexDirection={"row"} flex={1}>
@@ -97,7 +105,7 @@ const FeedCard = ({data})=>{
               <MaterialIcons name="date-range" size={24} color="#ffd11a" />
             </View>
             <View flex={0.8} justifyContent={"center"}>
-              <Text style={[textStyles.normal]}>{data.date}</Text>
+              <Text style={[textStyles.normal]}>{dataa.date}</Text>
             </View>
           </View>
         </View>
