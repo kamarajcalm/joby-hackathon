@@ -22,6 +22,7 @@ const TabNavigator = ()=>{
         name="HomeStack"
         component={HomeStack}
         options={{
+          tabBarItemStyle: { flexDirection: "column" },
           headerShown: false,
           tabBarIcon: ({ focused, size, color }) => {
             return (
@@ -50,6 +51,7 @@ const TabNavigator = ()=>{
         name="Activities"
         component={FavoritesStack}
         options={{
+          tabBarItemStyle: { flexDirection: "column" },
           headerShown: false,
           tabBarIcon: ({ focused, size, color }) => {
             return (
@@ -78,6 +80,7 @@ const TabNavigator = ()=>{
         name="ChatsStack"
         component={ChatStack}
         options={{
+          tabBarItemStyle: { flexDirection: "column",alignItems:"center",justifyContent:"center" },
           headerShown: false,
           tabBarIcon: ({ focused, size, color }) => {
             return (
@@ -90,23 +93,26 @@ const TabNavigator = ()=>{
           },
           tabBarLabel: ({ focused }) => {
             return (
-              <Text
-                style={[
-                  textStyles.normal,
-                  { color: focused ? themeColor : "grey", fontSize: 10 },
-                ]}
-              >
-                Chats
-              </Text>
+              <View>
+                <Text
+                  style={[
+                    textStyles.normal,
+                    { color: focused ? themeColor : "grey", fontSize: 10 },
+                  ]}
+                >
+                  Chats
+                </Text>
+              </View>
             );
           },
-          tabBarBadge:"2"
+          tabBarBadge: "2",
         }}
       />
       <Tab.Screen
         name="PostsStack"
         component={PostStack}
         options={{
+          tabBarItemStyle: { flexDirection: "column" },
           headerShown: false,
           tabBarIcon: ({ focused, size, color }) => {
             return (

@@ -3,18 +3,20 @@ import {
   View,
   Box,
   Image,
-  Circle,
+
   Center,
   Text,
-  Pressable
+  Pressable,
+  useToast
 } from "native-base";
-import {StyleSheet,Dimensions} from "react-native";
+import {StyleSheet,Dimensions,Share} from "react-native";
 import { textStyles } from '../styles';
 import { themeColor } from '../config';
 const {height,width} = Dimensions.get("window");
 import { useNavigation } from "@react-navigation/native";
 import { Entypo, AntDesign, MaterialIcons } from "@expo/vector-icons";
 const FeedCard = ({data})=>{
+
     const navigation = useNavigation();
     const [dataa,setDataa] = useState(data)
   return (
@@ -54,7 +56,26 @@ const FeedCard = ({data})=>{
           </View>
         </View>
         <View flex={0.2} alignItems={"center"} justifyContent={"center"}>
-          <Pressable>
+          <Pressable 
+           onPress={async()=>{
+          try {
+      const result = await Share.share({
+        message:"Post Share",
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+           }}
+          >
             <Entypo name="share" size={24} color="#000" />
           </Pressable>
           <Pressable mt={"2"} 
@@ -63,6 +84,7 @@ const FeedCard = ({data})=>{
                 ...dataa,
                 liked:!dataa.liked
             })
+       
            }}
           >
             <AntDesign name="heart" size={24} color={dataa.liked?"red":"grey"} />

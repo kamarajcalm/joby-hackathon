@@ -4,6 +4,7 @@ import {
   Pressable,
   StyleSheet,
   Dimensions,
+  Platform,
 } from "react-native";
 import {
   Box,
@@ -158,7 +159,7 @@ const Posts = () => {
                   <Text
                     style={[
                       textStyles.normal,
-                      { fontSize: 15, color: "gray", textAlign: "center" },
+                      { fontSize: 15, color: "gray", textAlign:Platform.OS!="web"?"center":"auto" },
                     ]}
                   >
                     {item.content}

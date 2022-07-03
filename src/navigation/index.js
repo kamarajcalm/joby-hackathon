@@ -14,7 +14,7 @@ import ForgotPassword from "../screens/login/ForgotPassword";
 import TabNavigator from './TabNavigator'
 import AddPost from '../screens/AddPost'
 import ViewJob from "../screens/ViewJob";
-import { StatusBar } from "expo-status-bar";
+
 import Constants from "expo-constants";
 import Notifications from '../screens/Notifications';
 import MyProfile from '../screens/MyProfile';

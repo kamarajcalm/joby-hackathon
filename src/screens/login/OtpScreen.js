@@ -30,6 +30,7 @@ import useChangeEffect from "../../hooks/useChangeEffect";
 import Constants from 'expo-constants';
 import { useRoute } from "@react-navigation/native";
 const { height, width } = Dimensions.get("window");
+import { CommonActions } from "@react-navigation/native";
 const OtpScreen = () => {
   const navigation = useNavigation();
   const inputRef = useRef([]);
@@ -139,7 +140,17 @@ const OtpScreen = () => {
           <Pressable
             style={styles.button}
             onPress={() => {
-              navigation.navigate("TabNavigator");
+                navigation.dispatch(
+                  CommonActions.reset({
+                    index: 0,
+                    routes: [
+                      {
+                        name: "TabNavigator",
+                      },
+                    ],
+                  })
+                ); 
+        
             }}
           >
             <Text style={[textStyles.normal, { color: "#fff" }]}>

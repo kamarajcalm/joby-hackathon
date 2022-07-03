@@ -3,26 +3,21 @@ import { Dimensions, StyleSheet } from "react-native";
 import {
   Box,
   Text,
-  Heading,
-  VStack,
-  FormControl,
+
   Input,
-  Link,
-  Button,
-  HStack,
+
   Center,
-  NativeBaseProvider,
+
   ScrollView,
   View,
   Image,
   Pressable,
-  Divider,
-  useNativeBase,
+
 } from "native-base";
 import { textStyles } from "../../styles";
 import { themeColor } from "../../config";
 import { checkPhone } from "../../utils/checkPhone";
-import { checkEmail } from "../../utils/checkEmail";
+
 
 import { useNavigation } from "@react-navigation/native";
 import useChangeEffect from "../../hooks/useChangeEffect";
@@ -39,12 +34,10 @@ const ForgotPassword = () => {
     setvalidEmail(true);
   }, [email, phoneNumber]);
   const signUp = () => {
-    // if (!checkPhone(phoneNumber)) {
-    //   return setValidPhone(false);
-    // }
-    // if (!checkEmail(email)) {
-    //   return setValidPhone(false);
-    // }
+    if (!checkPhone(phoneNumber)) {
+      return setValidPhone(false);
+    }
+ 
 
     navigation.navigate("OtpScreen");
   };

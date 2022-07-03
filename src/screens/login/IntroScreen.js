@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,} from "react";
 import { ActivityIndicator, StyleSheet,Dimensions } from "react-native";
-import { CommonActions } from "@react-navigation/native";
+
 import {FlatList,Image,View,Center,Text,Circle, useSafeArea, Pressable} from "native-base"
 import { textStyles } from "../../styles";
 import { themeColor } from "../../config";
@@ -40,7 +40,7 @@ const IntroScreen = () => {
      }
    }, []);
   return (
-    <View style={styles.container}>
+    <View flex={1} style={styles.container}>
       <FlatList
         viewabilityConfig={{
           itemVisiblePercentThreshold: 100,
@@ -53,7 +53,7 @@ const IntroScreen = () => {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item, index }) => {
           return (
-            <View style={{ width }} flex={1}>
+            <View style={{ width ,height}} flex={1} >
               <View flex={0.5}>
                 <Center
                   flex={1}
@@ -135,10 +135,11 @@ const IntroScreen = () => {
                   {data.map((it, index) => {
                     let activeItem = index == active;
                     return (
-                      <View
+                      <Pressable
+                        
                         key={index}
                         style={activeItem ? styles.activeRound : styles.round}
-                      ></View>
+                      ></Pressable>
                     );
                   })}
                 </Center>
@@ -165,6 +166,7 @@ const IntroScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
   },
   round: {
     height: 10,

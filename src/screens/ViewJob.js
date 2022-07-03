@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Dimensions, Platform } from "react-native";
+import { StyleSheet, Dimensions, Platform ,Share} from "react-native";
 import {
   View,
   Text,
@@ -12,6 +12,7 @@ import {
   CheckIcon,
   Center,
   ScrollView,
+  useToast
 } from "native-base";
 import { themeColor } from "../config";
 import { textStyles } from "../styles";
@@ -30,6 +31,8 @@ import {
 
 const ViewJob  =()=>{
   const navigation = useNavigation();
+  const [liked,setLiked]  = useState(false)
+  const toast = useToast()
     return (
       <View flex={1} >
         <View style={styles.header}>
@@ -45,10 +48,33 @@ const ViewJob  =()=>{
              <Text style={[textStyles.normal,{color:'#fff',fontSize:18}]}>Job Details</Text>
           </View>
           <View flexDirection={"row"}>
-            <Pressable mr={"5"}>
-              <AntDesign name="heart" size={24} color="red" />
+            <Pressable mr={"5"}
+             onPress={()=>{
+              setLiked(!liked)
+             }}
+            >
+              <AntDesign name="heart" size={24} color={liked?"red":"grey"} />
             </Pressable>
-            <Pressable>
+            <Pressable 
+             onPress={async()=>{
+         try {
+           const result = await Share.share({
+             message: "Post Share",
+           });
+           if (result.action === Share.sharedAction) {
+             if (result.activityType) {
+               // shared with activity type of result.activityType
+             } else {
+               // shared
+             }
+           } else if (result.action === Share.dismissedAction) {
+             // dismissed
+           }
+         } catch (error) {
+           alert(error.message);
+         }
+             }}
+            >
               <Entypo name="share" size={24} color="#fff" />
             </Pressable>
           </View>
@@ -162,7 +188,12 @@ const ViewJob  =()=>{
             mt={"4"}
             marginY={"6"}
             alignSelf={"center"}
-            onPress={() => {}}
+            onPress={() => {
+              toast.show({
+                description:"Applied To Job SuccessFully"
+              })
+              navigation.goBack()
+            }}
           >
             <Text style={[textStyles.normal, { color: "#fff" }]}>
               Apply Now

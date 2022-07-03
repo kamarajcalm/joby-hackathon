@@ -11,9 +11,10 @@ import {
   Select,
   CheckIcon,
   Center,
-  Circle
+  Circle,
+  useToast
 } from "native-base";
-
+import * as ImagePicker from "expo-image-picker";
 import Constants from "expo-constants";
 import { StatusBar } from "expo-status-bar";
 import NavBar from "../components/NavBar";
@@ -23,7 +24,29 @@ import { textStyles } from "../styles";
 import { useNavigation } from "@react-navigation/native";
 const { height, width } = Dimensions.get("window");
 const AddPost  = ()=>{
+   const toast = useToast();
   const navigation = useNavigation()
+     const pickImage = async () => {
+       // No permissions request is necessary for launching the image library
+       let result = await ImagePicker.launchImageLibraryAsync({
+         mediaTypes: ImagePicker.MediaTypeOptions.Images,
+         quality: 1,
+       });
+
+     
+
+       if (!result.cancelled) {
+         let filename = result.uri.split("/").pop();
+         let match = /\.(\w+)$/.exec(filename);
+         var type = match ? `image/${match[1]}` : `image`;
+         let photo = {
+           uri: result.uri,
+           type: type,
+           name: filename,
+         };
+       
+       }
+     };
   return (
     <View>
       <NavBar title={"Post Jobs"} />
@@ -80,7 +103,7 @@ const AddPost  = ()=>{
           placeholder="Upload Image"
         /> */}<Pressable style={styles.upload} 
            onPress={()=>{
-            navigation.navigate("TabNavigator");
+            pickImage()
            }}
           >
            <View flex={0.15} style={styles.center}>
@@ -93,7 +116,7 @@ const AddPost  = ()=>{
           </Pressable>
           <Pressable style={styles.upload} 
            onPress={()=>{
-            navigation.navigate("TabNavigator");
+         pickImage();
            }}
           >
            <View flex={0.15} style={styles.center}>
@@ -107,7 +130,7 @@ const AddPost  = ()=>{
          
           <Pressable style={styles.upload} 
            onPress={()=>{
-            navigation.navigate("TabNavigator");
+           pickImage();
            }}
           >
            <View flex={0.15} style={styles.center}>
@@ -140,8 +163,13 @@ const AddPost  = ()=>{
         />
          <Pressable style={styles.button} 
            onPress={()=>{
-            navigation.navigate("TabNavigator");
-           }}
+            toast.show({
+              description: "Post Added SuccessFully",
+            }) 
+            navigation.goBack()
+           }
+          
+          }
           >
             <Text style={[textStyles.normal,{color:"#fff"}]}>Submit</Text>
           </Pressable>
