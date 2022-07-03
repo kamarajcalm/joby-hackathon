@@ -30,8 +30,8 @@ import useChangeEffect from "../../hooks/useChangeEffect";
 const {height,width} = Dimensions.get("window")
 const SignUpScreen = () => {
   const navigation =  useNavigation()
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState(__DEV__?"7010117137":"");
+  const [email, setEmail] = useState(__DEV__?"kamraj089@gmail.com":"");
   const [validPhone, setValidPhone] = useState(true);
   const [validEmail, setvalidEmail] = useState(true);
   useChangeEffect(() => {
@@ -39,12 +39,12 @@ const SignUpScreen = () => {
     setvalidEmail(true)
   }, [email, phoneNumber]);
   const signUp =()=>{
-    // if(!checkPhone(phoneNumber)){
-    //   return setValidPhone(false)
-    // }
-    // if(!checkEmail(email)){
-    //   return setvalidEmail(false);
-    // }
+    if(!checkPhone(phoneNumber)){
+      return setValidPhone(false)
+    }
+    if(!checkEmail(email)){
+      return setvalidEmail(false);
+    }
 
      navigation.navigate("OtpScreen");
   }
