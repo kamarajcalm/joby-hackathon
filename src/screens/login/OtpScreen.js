@@ -63,9 +63,7 @@ const OtpScreen = () => {
   };
   return (
     <View
-      style={{
-        marginTop: Platform.OS == "android" ? Constants.statusBarHeight : 0,
-      }}
+  
     >
       <ScrollView>
         <View
@@ -83,9 +81,7 @@ const OtpScreen = () => {
         <Center>
           <Image
             resizeMode={"contain"}
-            source={{
-              uri: "https://wallpaperaccess.com/full/317501.jpg",
-            }}
+            source={require("../../../assets/EnterOTPamico.png")}
             alt="Alternate Text"
             style={{ height: height * 0.38, width: width }}
           />
@@ -140,12 +136,15 @@ const OtpScreen = () => {
             </Pressable>
           </View>
 
-          <Pressable style={styles.button} 
-           onPress={()=>{
-            navigation.navigate("TabNavigator");
-           }}
+          <Pressable
+            style={styles.button}
+            onPress={() => {
+              navigation.navigate("TabNavigator");
+            }}
           >
-            <Text style={[textStyles.normal,{color:"#fff"}]}>Verify OTP</Text>
+            <Text style={[textStyles.normal, { color: "#fff" }]}>
+              Verify OTP
+            </Text>
           </Pressable>
         </Center>
       </ScrollView>

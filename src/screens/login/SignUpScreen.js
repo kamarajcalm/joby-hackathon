@@ -55,9 +55,7 @@ const SignUpScreen = () => {
       <Center mt={"10"}>
         <Image
           resizeMode={"contain"}
-          source={{
-            uri: "https://wallpaperaccess.com/full/317501.jpg",
-          }}
+          source={require("../../../assets/Mobileloginamico.png")}
           alt="Alternate Text"
           style={{ height: height * 0.38, width: width }}
         />
@@ -97,10 +95,12 @@ const SignUpScreen = () => {
               </Text>
             </View>
           )}
-          <Pressable style={styles.button} mt={"4"}
-           onPress={()=>{
-            signUp()
-           }}
+          <Pressable
+            style={styles.button}
+            mt={"4"}
+            onPress={() => {
+              signUp();
+            }}
           >
             <Text style={[textStyles.normal, { color: "#fff" }]}>SIGN UP</Text>
           </Pressable>
@@ -109,10 +109,11 @@ const SignUpScreen = () => {
             <View>
               <Text style={[textStyles.normal]}>Already Have An Account ?</Text>
             </View>
-            <Pressable ml={"4"}
-             onPress = {()=>{
-              navigation.navigate("LoginScreen");
-             }}
+            <Pressable
+              ml={"4"}
+              onPress={() => {
+                navigation.navigate("LoginScreen");
+              }}
             >
               <Text style={[textStyles.normal, { color: themeColor }]}>
                 Login

@@ -7,21 +7,22 @@ import { textStyles } from "../../styles";
 import { themeColor } from "../../config";
 const {height,width} =Dimensions.get("window")
 import { FontAwesome } from "@expo/vector-icons";
+import { StatusBar } from "expo-status-bar";
 const data = [
   {
     Title: "WELCOME TO JOBY",
     content: "We help to find a job have to climp higher for dream",
-    img: require("../../../assets/screen1.png"),
+    img: require("../../../assets/one.png"),
   },
   {
     Title: "LEARN + EARN",
     content: "We help to find a job have to climp higher for dream",
-    img: require("../../../assets/screen2.png"),
+    img: require("../../../assets/two.png"),
   },
   {
     Title: "WORK FROM ANY WHERE",
     content: "We help to find a job have to climp higher for dream",
-    img: require("../../../assets/screen3.png"),
+    img: require("../../../assets/one.png"),
   },
 ];
 const IntroScreen = () => {
@@ -120,7 +121,7 @@ const IntroScreen = () => {
                         <Text
                           style={[
                             textStyles.normal,
-                            { color: themeColor, marginTop: 10 ,marginLeft:5},
+                            { color: themeColor, marginTop: 10, marginLeft: 5 },
                           ]}
                         >
                           Next
@@ -146,13 +147,17 @@ const IntroScreen = () => {
           );
         }}
       />
-      <Pressable position={"absolute"} top={"10"} right={"10"}
-       onPress={()=>{
-        navigation.navigate("SelectorScreen");
-       }}
+      <Pressable
+        position={"absolute"}
+        top={"10"}
+        right={"10"}
+        onPress={() => {
+          navigation.navigate("SelectorScreen");
+        }}
       >
-         <Text style={[textStyles.normal,{fontSize:18}]}>SKIP</Text>
+        <Text style={[textStyles.normal, { fontSize: 18 }]}>SKIP</Text>
       </Pressable>
+      <StatusBar style="light" backgroundColor={themeColor} />
     </View>
   );
 };

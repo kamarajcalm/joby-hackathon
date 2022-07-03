@@ -1,11 +1,13 @@
 import { View, Image, FlatList, Divider } from "native-base";
 import React from "react";
-import { StyleSheet, Dimensions, Text } from "react-native";
+import { StyleSheet, Dimensions, Text, Pressable, Alert } from "react-native";
 import NavBar from "../components/NavBar";
 import { themeColor } from "../config";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 const { height, width } = Dimensions.get("window");
 import { textStyles } from "../styles";
+import { useNavigation } from "@react-navigation/native";
+import { CommonActions } from "@react-navigation/native";
 const data = [
   {
       label:"Username",
@@ -22,8 +24,10 @@ const data = [
       text:"Hi i am arun front-end dev sample details.",
       icon:"information-circle-sharp"
   },
+
 ] 
 const MyProfile = () => {
+  const navigation = useNavigation()
   return (
     <View>
       <NavBar title={"My Profile"} />
@@ -39,6 +43,7 @@ const MyProfile = () => {
         
       </View>
       <FlatList 
+    
         ItemSeparatorComponent={()=><Divider />}
         data={data}
         keyExtractor={(item,index)=>index.toString()}
@@ -67,6 +72,36 @@ const MyProfile = () => {
           )
         }}
       />
+      <View style={{marginVertical:20,alignSelf:"center"}}>
+         <Pressable style={styles.button}
+         onPress={()=>{
+              Alert.alert("Are you sure to Logout?", "", [
+                {
+                  text: "Cancel",
+                  onPress: () => console.log("Cancel Pressed"),
+                  style: "cancel",
+                },
+                {
+                  text: "OK",
+                  onPress: async () => {
+                      navigation.dispatch(
+                        CommonActions.reset({
+                          index: 0,
+                          routes: [
+                            {
+                              name: "IntroScreen",
+                            },
+                          ],
+                        })
+                      );
+                  },
+                },
+              ]);
+         }}
+         >
+                <Text style={[textStyles.normal,{color:"#fff"}]}>Log out</Text>
+         </Pressable>
+      </View>
     </View>
   );
 };
@@ -82,10 +117,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  container:{
-    flexDirection:"row",
-    height:height*0.1,
-
-  }
+  container: {
+    flexDirection: "row",
+    height: height * 0.1,
+  },
+  logout: {
+    flexDirection: "row",
+    marginTop: 40,
+  },
+  button: {
+    height: height * 0.05,
+    width: width * 0.4,
+    backgroundColor: themeColor,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+    marginTop:30
+  },
 });
 export default MyProfile;

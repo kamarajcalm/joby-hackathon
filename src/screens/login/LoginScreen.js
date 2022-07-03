@@ -53,9 +53,7 @@ const LoginScreen = () => {
       <Center mt={"10"}>
         <Image
           resizeMode={"contain"}
-          source={{
-            uri: "https://wallpaperaccess.com/full/317501.jpg",
-          }}
+          source={require("../../../assets/Mobileloginamico.png")}
           alt="Alternate Text"
           style={{ height: height * 0.38, width: width }}
         />
@@ -95,27 +93,30 @@ const LoginScreen = () => {
               </Text>
             </View>
           )}
-           <View mt={"2"}  >
-            
-            <Pressable ml={"160"}
-             onPress={()=>{
+          <View mt={"2"}>
+            <Pressable
+              ml={"160"}
+              onPress={() => {
                 navigation.navigate("ForgotPassword");
-               }}
-             >
+              }}
+            >
               <Text style={[textStyles.normal, { color: themeColor }]}>
                 Forgot Password
               </Text>
             </Pressable>
           </View>
-          <Pressable style={styles.button} mt={"4"}
-           onPress={()=>{
-            signUp()
-           }}
+          <Pressable
+            style={styles.button}
+            mt={"4"}
+            onPress={() => {
+              signUp();
+            }}
           >
-            <Text style={[textStyles.normal, { color: "#fff" }]}>Verify OTP</Text>
+            <Text style={[textStyles.normal, { color: "#fff" }]}>
+              Verify OTP
+            </Text>
           </Pressable>
 
-         
           <View mt={"4"} flexDirection={"row"}>
             <View alignItems={"center"} justifyContent={"center"}>
               <Divider style={{ width: width * 0.2 }}></Divider>

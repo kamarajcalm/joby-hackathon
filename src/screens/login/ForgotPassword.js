@@ -53,9 +53,7 @@ const ForgotPassword = () => {
       <Center mt={"10"}>
         <Image
           resizeMode={"contain"}
-          source={{
-            uri: "https://wallpaperaccess.com/full/317501.jpg",
-          }}
+          source={require("../../../assets/Mypasswordpana.png")}
           alt="Alternate Text"
           style={{ height: height * 0.38, width: width }}
         />
@@ -77,7 +75,9 @@ const ForgotPassword = () => {
           >
             Please Enter the verification code
           </Text>
-          <Text style={[textStyles.normal, { fontWeight: "700" , fontSize: 11}]}>
+          <Text
+            style={[textStyles.normal, { fontWeight: "700", fontSize: 11 }]}
+          >
             send to 123456789
           </Text>
         </View>

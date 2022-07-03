@@ -19,6 +19,9 @@ import Constants from "expo-constants";
 import Notifications from '../screens/Notifications';
 import MyProfile from '../screens/MyProfile';
 import ChatScreen from '../screens/ChatScreen';
+import { Platform} from 'react-native';
+
+
 const Navigation  = ()=>{
   return (
     <SafeAreaView
