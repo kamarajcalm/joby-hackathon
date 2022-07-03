@@ -73,7 +73,12 @@ const Posts = () => {
           </Text>
         </View>
         <View flexDirection={"row"}>
-          <Pressable mr={"5"}>
+          <Pressable mr={"5"}
+          onPress={() => {
+            navigation.navigate("AddPost");
+          }}
+          >
+
             <Entypo name="add-to-list" size={24} color="#fff" />
           </Pressable>
    
