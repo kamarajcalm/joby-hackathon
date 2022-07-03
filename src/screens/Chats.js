@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React ,{useEffect, useState} from "react";
 import {
   View,
   Text,
@@ -14,7 +14,8 @@ import {
   VStack,
   Spacer,
   Icon,
-  ScrollView
+  ScrollView,
+  useToast
 } from "native-base";
 import {StyleSheet,Dimensions} from 'react-native';
 import { themeColor } from "../config";
@@ -66,7 +67,7 @@ const data = [
 ];
 const Chats = () => {
   const navigation = useNavigation();
-
+ const toast =useToast()
 const [listData, setListData] = useState(data);
 
 const closeRow = (rowMap, rowKey) => {
@@ -74,7 +75,11 @@ const closeRow = (rowMap, rowKey) => {
     rowMap[rowKey].closeRow();
   }
 };
-
+useEffect(()=>{
+toast.show({
+    description:"Swipe left to delete chats"
+})
+},[])
 const deleteRow = (rowMap, rowKey) => {
   closeRow(rowMap, rowKey);
   const newData = [...listData];
@@ -90,6 +95,9 @@ const onRowDidOpen = (rowKey) => {
 const renderItem = ({ item, index }) => (
   <Box>
     <Pressable
+      _pressed={{
+        opacity: 0.5,
+      }}
       onPress={() =>
         console.log(navigation.navigate("ChatScreen", { name: item.fullName }))
       }

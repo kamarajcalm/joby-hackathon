@@ -40,6 +40,9 @@ const SelectorScreen = () => {
       <View flex={0.6} style={styles.footer}>
         <Center mt={"16"}>
           <Pressable
+            _pressed={{
+              opacity: 0.5,
+            }}
             style={styles.button}
             onPress={() => {
               navigation.navigate("SignUpScreen");
@@ -50,6 +53,9 @@ const SelectorScreen = () => {
             </Text>
           </Pressable>
           <Pressable
+            _pressed={{
+              opacity: 0.5,
+            }}
             style={styles.button}
             onPress={() => {
               navigation.navigate("SignUpScreen");

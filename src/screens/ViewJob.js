@@ -34,9 +34,12 @@ const ViewJob  =()=>{
   const [liked,setLiked]  = useState(false)
   const toast = useToast()
     return (
-      <View flex={1} >
+      <View flex={1}>
         <View style={styles.header}>
           <Pressable
+            _pressed={{
+              opacity: 0.5,
+            }}
             onPress={() => {
               navigation.goBack();
             }}
@@ -45,35 +48,48 @@ const ViewJob  =()=>{
             <FontAwesome name="angle-left" size={40} color="#fff" />
           </Pressable>
           <View>
-             <Text style={[textStyles.normal,{color:'#fff',fontSize:18}]}>Job Details</Text>
+            <Text style={[textStyles.normal, { color: "#fff", fontSize: 18 }]}>
+              Job Details
+            </Text>
           </View>
           <View flexDirection={"row"}>
-            <Pressable mr={"5"}
-             onPress={()=>{
-              setLiked(!liked)
-             }}
+            <Pressable
+              _pressed={{
+                opacity: 0.5,
+              }}
+              mr={"5"}
+              onPress={() => {
+                setLiked(!liked);
+              }}
             >
-              <AntDesign name="heart" size={24} color={liked?"red":"grey"} />
+              <AntDesign
+                name="heart"
+                size={24}
+                color={liked ? "red" : "grey"}
+              />
             </Pressable>
-            <Pressable 
-             onPress={async()=>{
-         try {
-           const result = await Share.share({
-             message: "Post Share",
-           });
-           if (result.action === Share.sharedAction) {
-             if (result.activityType) {
-               // shared with activity type of result.activityType
-             } else {
-               // shared
-             }
-           } else if (result.action === Share.dismissedAction) {
-             // dismissed
-           }
-         } catch (error) {
-           alert(error.message);
-         }
-             }}
+            <Pressable
+              _pressed={{
+                opacity: 0.5,
+              }}
+              onPress={async () => {
+                try {
+                  const result = await Share.share({
+                    message: "Post Share",
+                  });
+                  if (result.action === Share.sharedAction) {
+                    if (result.activityType) {
+                      // shared with activity type of result.activityType
+                    } else {
+                      // shared
+                    }
+                  } else if (result.action === Share.dismissedAction) {
+                    // dismissed
+                  }
+                } catch (error) {
+                  alert(error.message);
+                }
+              }}
             >
               <Entypo name="share" size={24} color="#fff" />
             </Pressable>
@@ -184,15 +200,18 @@ const ViewJob  =()=>{
             </View>
           </View>
           <Pressable
+            _pressed={{
+              opacity: 0.5,
+            }}
             style={styles.button}
             mt={"4"}
             marginY={"6"}
             alignSelf={"center"}
             onPress={() => {
               toast.show({
-                description:"Applied To Job SuccessFully"
-              })
-              navigation.goBack()
+                description: "Applied To Job SuccessFully",
+              });
+              navigation.goBack();
             }}
           >
             <Text style={[textStyles.normal, { color: "#fff" }]}>

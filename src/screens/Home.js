@@ -53,6 +53,9 @@ const Home  =()=>{
         </View>
         <View flexDirection={"row"}>
           <Pressable
+            _pressed={{
+              opacity: 0.5,
+            }}
             mr={"5"}
             onPress={() => {
               navigation.navigate("Notifications");
@@ -64,6 +67,9 @@ const Home  =()=>{
             </View>
           </Pressable>
           <Pressable
+            _pressed={{
+              opacity: 0.5,
+            }}
             onPress={() => {
               navigation.navigate("MyProfile");
             }}
@@ -79,7 +85,7 @@ const Home  =()=>{
           style={[textStyles.normal]}
           w={{
             base: "90%",
-            md: "25%",
+            md: "90%",
           }}
           InputLeftElement={
             <Icon
@@ -96,7 +102,7 @@ const Home  =()=>{
           style={[textStyles.normal]}
           w={{
             base: "90%",
-            md: "25%",
+            md: "90%",
           }}
           InputLeftElement={
             <Icon

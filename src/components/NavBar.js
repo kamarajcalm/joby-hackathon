@@ -15,6 +15,9 @@ const NavBar = ({title})=>{
  return (
    <View style={styles.container}>
      <Pressable
+       _pressed={{
+         opacity: 0.5,
+       }}
        flex={0.2}
        onPress={() => {
          navigation.goBack();
@@ -24,7 +27,9 @@ const NavBar = ({title})=>{
        <FontAwesome name="angle-left" size={40} color="#fff" />
      </Pressable>
      <View flex={0.6} style={[styles.center]}>
-       <Text style={[textStyles.normal,{color:"#fff",fontSize:20}]}>{title}</Text>
+       <Text style={[textStyles.normal, { color: "#fff", fontSize: 20 }]}>
+         {title}
+       </Text>
      </View>
      <View flex={0.2}></View>
    </View>

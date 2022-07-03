@@ -62,7 +62,6 @@ const Posts = () => {
     <View
       flex={1}
       style={{
-     
         backgroundColor: "#fff",
       }}
     >
@@ -74,15 +73,17 @@ const Posts = () => {
           </Text>
         </View>
         <View flexDirection={"row"}>
-          <Pressable mr={"5"}
-          onPress={() => {
-            navigation.navigate("AddPost");
-          }}
+          <Pressable
+            mr={"5"}
+            _pressed={{
+              opacity: 0.5,
+            }}
+            onPress={() => {
+              navigation.navigate("AddPost");
+            }}
           >
-
             <Entypo name="add-to-list" size={24} color="#fff" />
           </Pressable>
-   
         </View>
       </View>
       <FlatList
@@ -159,7 +160,11 @@ const Posts = () => {
                   <Text
                     style={[
                       textStyles.normal,
-                      { fontSize: 15, color: "gray", textAlign:Platform.OS!="web"?"center":"auto" },
+                      {
+                        fontSize: 15,
+                        color: "gray",
+                        textAlign: Platform.OS != "web" ? "center" : "auto",
+                      },
                     ]}
                   >
                     {item.content}

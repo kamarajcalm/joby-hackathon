@@ -93,6 +93,9 @@ const ForgotPassword = () => {
           )}
 
           <Pressable
+            _pressed={{
+              opacity: 0.5,
+            }}
             style={styles.button}
             mt={"67"}
             onPress={() => {

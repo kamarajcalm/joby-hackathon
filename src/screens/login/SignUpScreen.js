@@ -96,6 +96,9 @@ const SignUpScreen = () => {
             </View>
           )}
           <Pressable
+            _pressed={{
+              opacity: 0.5,
+            }}
             style={styles.button}
             mt={"4"}
             onPress={() => {
@@ -110,6 +113,9 @@ const SignUpScreen = () => {
               <Text style={[textStyles.normal]}>Already Have An Account ?</Text>
             </View>
             <Pressable
+              _pressed={{
+                opacity: 0.5,
+              }}
               ml={"4"}
               onPress={() => {
                 navigation.navigate("LoginScreen");
@@ -143,7 +149,11 @@ const SignUpScreen = () => {
             alignItems={"center"}
             justifyContent={"center"}
           >
-            <Pressable>
+            <Pressable
+              _pressed={{
+                opacity: 0.5,
+              }}
+            >
               <Image
                 resizeMode={"contain"}
                 source={{
@@ -153,7 +163,12 @@ const SignUpScreen = () => {
                 style={{ height: 40, width: 40 }}
               />
             </Pressable>
-            <Pressable ml={"4"}>
+            <Pressable
+              ml={"4"}
+              _pressed={{
+                opacity: 0.5,
+              }}
+            >
               <Image
                 resizeMode={"contain"}
                 source={{

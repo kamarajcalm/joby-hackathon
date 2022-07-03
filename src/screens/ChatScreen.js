@@ -39,11 +39,18 @@ setMessage("");
         data={data}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item, index }) => {
-            let sender = item.userId==userId
+          let sender = item.userId == userId;
           return (
-            <View style={{ flexDirection: "row", alignSelf: sender?"flex-end" :"flex-start" }}>
-              <View style={sender? styles.sender:styles.reciever}>
-                <Text style={[textStyles.normal,{color:"#fff"}]}>{item.msg}</Text>
+            <View
+              style={{
+                flexDirection: "row",
+                alignSelf: sender ? "flex-end" : "flex-start",
+              }}
+            >
+              <View style={sender ? styles.sender : styles.reciever}>
+                <Text style={[textStyles.normal, { color: "#fff" }]}>
+                  {item.msg}
+                </Text>
               </View>
             </View>
           );
@@ -51,21 +58,33 @@ setMessage("");
       />
 
       <View style={styles.inputContainer}>
-        <View flex={0.8} >
-          <TextInput style={[styles.input,textStyles.normal]} selectionColor={themeColor}
-          value={message}
-          onChangeText={(value)=>{
-            setMessage(value)
-          }}
-           placeholder={"Type Your Message"}
+        <View flex={0.8}>
+          <TextInput
+            style={[styles.input, textStyles.normal]}
+            selectionColor={themeColor}
+            value={message}
+            onChangeText={(value) => {
+              setMessage(value);
+            }}
+            placeholder={"Type Your Message"}
           />
         </View>
-        <Pressable flex={0.2} alignItems={"center"} justifyContent={"center"} 
-         onPress={()=>{
-            sendMessage()
-         }}
+        <Pressable
+          flex={0.2}
+          alignItems={"center"}
+          justifyContent={"center"}
+          onPress={() => {
+            sendMessage();
+          }}
+          _pressed={{
+            opacity: 0.5,
+          }}
         >
-          <FontAwesome name="send" size={24} color={ message.length>0?themeColor : "gray"}  />
+          <FontAwesome
+            name="send"
+            size={24}
+            color={message.length > 0 ? themeColor : "gray"}
+          />
         </Pressable>
       </View>
     </View>

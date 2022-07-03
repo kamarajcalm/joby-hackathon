@@ -56,7 +56,7 @@ const AddPost  = ()=>{
           style={[textStyles.normal]}
           w={{
             base: "90%",
-            md: "25%",
+            md: "90%",
           }}
           InputLeftElement={
             <Icon
@@ -73,7 +73,7 @@ const AddPost  = ()=>{
           style={[textStyles.normal]}
           w={{
             base: "90%",
-            md: "25%",
+            md: "90%",
           }}
           InputLeftElement={
             <Icon
@@ -101,55 +101,69 @@ const AddPost  = ()=>{
             />
           }
           placeholder="Upload Image"
-        /> */}<Pressable style={styles.upload} 
-           onPress={()=>{
-            pickImage()
-           }}
-          >
-           <View flex={0.15} style={styles.center}>
-           <MaterialIcons name="image" size={24} color="grey" />
-            </View>
-            <View flex={0.8} style={styles.iconlabel}>
-            <Text style={[textStyles.normal,{color:"grey" }]}>Upload Image</Text>
-            </View>
-            
-          </Pressable>
-          <Pressable style={styles.upload} 
-           onPress={()=>{
-         pickImage();
-           }}
-          >
-           <View flex={0.15} style={styles.center}>
-           <MaterialIcons name="video-collection" size={24} color="grey" />
-            </View>
-            <View flex={0.8} style={styles.iconlabel}>
-            <Text style={[textStyles.normal,{color:"grey" }]}>Upload Video</Text>
-            </View>
-            
-          </Pressable>
-         
-          <Pressable style={styles.upload} 
-           onPress={()=>{
-           pickImage();
-           }}
-          >
-           <View flex={0.15} style={styles.center}>
-           <MaterialIcons name="upload-file" size={24} color="grey" />
-            </View>
-            <View flex={0.8} style={styles.iconlabel}>
-            <Text style={[textStyles.normal,{color:"grey" }]}>Upload Document</Text>
-            </View>
-            
-          </Pressable>
-     
-       
-             
+        /> */}
+        <Pressable
+          _pressed={{
+            opacity: 0.5,
+          }}
+          style={styles.upload}
+          onPress={() => {
+            pickImage();
+          }}
+        >
+          <View flex={0.15} style={styles.center}>
+            <MaterialIcons name="image" size={24} color="grey" />
+          </View>
+          <View flex={0.8} style={styles.iconlabel}>
+            <Text style={[textStyles.normal, { color: "grey" }]}>
+              Upload Image
+            </Text>
+          </View>
+        </Pressable>
+        <Pressable
+          _pressed={{
+            opacity: 0.5,
+          }}
+          style={styles.upload}
+          onPress={() => {
+            pickImage();
+          }}
+        >
+          <View flex={0.15} style={styles.center}>
+            <MaterialIcons name="video-collection" size={24} color="grey" />
+          </View>
+          <View flex={0.8} style={styles.iconlabel}>
+            <Text style={[textStyles.normal, { color: "grey" }]}>
+              Upload Video
+            </Text>
+          </View>
+        </Pressable>
+
+        <Pressable
+          _pressed={{
+            opacity: 0.5,
+          }}
+          style={styles.upload}
+          onPress={() => {
+            pickImage();
+          }}
+        >
+          <View flex={0.15} style={styles.center}>
+            <MaterialIcons name="upload-file" size={24} color="grey" />
+          </View>
+          <View flex={0.8} style={styles.iconlabel}>
+            <Text style={[textStyles.normal, { color: "grey" }]}>
+              Upload Document
+            </Text>
+          </View>
+        </Pressable>
+
         <Input
           selectionColor={themeColor}
           style={[textStyles.normal]}
           w={{
             base: "90%",
-            md: "25%",
+            md: "90%",
           }}
           InputLeftElement={
             <Icon
@@ -161,22 +175,22 @@ const AddPost  = ()=>{
           }
           placeholder="Description"
         />
-         <Pressable style={styles.button} 
-           onPress={()=>{
+        <Pressable
+          _pressed={{
+            opacity: 0.5,
+          }}
+          style={styles.button}
+          onPress={() => {
             toast.show({
               description: "Post Added SuccessFully",
-            }) 
-            navigation.goBack()
-           }
-          
-          }
-          >
-            <Text style={[textStyles.normal,{color:"#fff"}]}>Submit</Text>
-          </Pressable>
+            });
+            navigation.goBack();
+          }}
+        >
+          <Text style={[textStyles.normal, { color: "#fff" }]}>Submit</Text>
+        </Pressable>
       </Stack>
-     
     </View>
-
   );
 }
 const styles = StyleSheet.create({

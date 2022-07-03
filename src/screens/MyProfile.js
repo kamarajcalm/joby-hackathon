@@ -40,67 +40,69 @@ const MyProfile = () => {
           alt="Alternate Text"
           style={{ height: 120, width: 120, borderRadius: 60 }}
         />
-        
       </View>
-      <FlatList 
-    
-        ItemSeparatorComponent={()=><Divider />}
+      <FlatList
+        ItemSeparatorComponent={() => <Divider />}
         data={data}
-        keyExtractor={(item,index)=>index.toString()}
-        renderItem={({item,index})=>{
-          return(
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item, index }) => {
+          return (
             <View style={styles.container}>
-            <View flex={0.2} style={[styles.center]}>
-            <Ionicons name={item.icon} size={24} color="black" />
-            </View>
-            <View flex={0.6} justifyContent={"center"}>
-              <View>
-                <Text style={[textStyles.normal, { color: "#000" }]}>
-                  {item.label}
-                </Text>
+              <View flex={0.2} style={[styles.center]}>
+                <Ionicons name={item.icon} size={24} color="black" />
               </View>
-              <View>
-                <Text style={[textStyles.bold, { color: "#000" }]}>
-                  {item.text}
-                </Text>
+              <View flex={0.6} justifyContent={"center"}>
+                <View>
+                  <Text style={[textStyles.normal, { color: "#000" }]}>
+                    {item.label}
+                  </Text>
+                </View>
+                <View>
+                  <Text style={[textStyles.bold, { color: "#000" }]}>
+                    {item.text}
+                  </Text>
+                </View>
+              </View>
+              <View flex={0.2} style={[styles.center]}>
+                <MaterialIcons name="mode-edit" size={24} color="black" />
               </View>
             </View>
-            <View flex={0.2} style={[styles.center]}>
-            <MaterialIcons name="mode-edit" size={24} color="black" />
-            </View>
-    </View>
-          )
+          );
         }}
       />
-      <View style={{marginVertical:20,alignSelf:"center"}}>
-         <Pressable style={styles.button}
-         onPress={()=>{
-              Alert.alert("Are you sure to Logout?", "", [
-                {
-                  text: "Cancel",
-                  onPress: () => console.log("Cancel Pressed"),
-                  style: "cancel",
+      <View style={{ marginVertical: 20, alignSelf: "center" }}>
+        <Pressable
+          style={styles.button}
+          _pressed={{
+            opacity: 0.5,
+          }}
+          onPress={() => {
+            Alert.alert("Are you sure to Logout?", "", [
+              {
+                text: "Cancel",
+                onPress: () => console.log("Cancel Pressed"),
+                style: "cancel",
+              },
+              {
+                text: "OK",
+                onPress: async () => {
+                  navigation.dispatch(
+                    CommonActions.reset({
+                      index: 0,
+                      routes: [
+                        {
+                          name: "IntroScreen",
+                        },
+                      ],
+                    })
+                  );
                 },
-                {
-                  text: "OK",
-                  onPress: async () => {
-                      navigation.dispatch(
-                        CommonActions.reset({
-                          index: 0,
-                          routes: [
-                            {
-                              name: "IntroScreen",
-                            },
-                          ],
-                        })
-                      );
-                  },
-                },
-              ]);
-         }}
-         >
-                <Text style={[textStyles.normal,{color:"#fff"}]}>Log out</Text>
-         </Pressable>
+              },
+            ]);
+          }}
+        >
+          <Text style={[textStyles.normal, { color: "#fff" }]}>Log out</Text>
+        </Pressable>
       </View>
     </View>
   );

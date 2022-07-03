@@ -53,7 +53,7 @@ const IntroScreen = () => {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item, index }) => {
           return (
-            <View style={{ width ,height}} flex={1} >
+            <View style={{ width, height }} flex={1}>
               <View flex={0.5}>
                 <Center
                   flex={1}
@@ -97,6 +97,9 @@ const IntroScreen = () => {
                 <Center>
                   {active == 2 && (
                     <Pressable
+                      _pressed={{
+                        opacity: 0.5,
+                      }}
                       flexDirection={"column"}
                       onPress={() => {
                         navigation.navigate("SelectorScreen");
@@ -136,7 +139,9 @@ const IntroScreen = () => {
                     let activeItem = index == active;
                     return (
                       <Pressable
-                        
+                        _pressed={{
+                          opacity: 0.5,
+                        }}
                         key={index}
                         style={activeItem ? styles.activeRound : styles.round}
                       ></Pressable>
@@ -149,6 +154,9 @@ const IntroScreen = () => {
         }}
       />
       <Pressable
+        _pressed={{
+          opacity: 0.5,
+        }}
         position={"absolute"}
         top={"10"}
         right={"10"}

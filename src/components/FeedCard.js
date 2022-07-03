@@ -56,42 +56,55 @@ const FeedCard = ({data})=>{
           </View>
         </View>
         <View flex={0.2} alignItems={"center"} justifyContent={"center"}>
-          <Pressable 
-           onPress={async()=>{
-          try {
-      const result = await Share.share({
-        message:"Post Share",
-      });
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          // shared with activity type of result.activityType
-        } else {
-          // shared
-        }
-      } else if (result.action === Share.dismissedAction) {
-        // dismissed
-      }
-    } catch (error) {
-      alert(error.message);
-    }
-           }}
+          <Pressable
+            _pressed={{
+              opacity: 0.5,
+            }}
+            onPress={async () => {
+              try {
+                const result = await Share.share({
+                  message: "Post Share",
+                });
+                if (result.action === Share.sharedAction) {
+                  if (result.activityType) {
+                    // shared with activity type of result.activityType
+                  } else {
+                    // shared
+                  }
+                } else if (result.action === Share.dismissedAction) {
+                  // dismissed
+                }
+              } catch (error) {
+                alert(error.message);
+              }
+            }}
           >
             <Entypo name="share" size={24} color="#000" />
           </Pressable>
-          <Pressable mt={"2"} 
-           onPress={()=>{
-            setDataa({
+          <Pressable
+            _pressed={{
+              opacity: 0.5,
+            }}
+            mt={"2"}
+            onPress={() => {
+              setDataa({
                 ...dataa,
-                liked:!dataa.liked
-            })
-       
-           }}
+                liked: !dataa.liked,
+              });
+            }}
           >
-            <AntDesign name="heart" size={24} color={dataa.liked?"red":"grey"} />
+            <AntDesign
+              name="heart"
+              size={24}
+              color={dataa.liked ? "red" : "grey"}
+            />
           </Pressable>
         </View>
       </View>
       <Pressable
+        _pressed={{
+          opacity: 0.5,
+        }}
         flexDirection={"column"}
         onPress={() => {
           navigation.navigate("ViewJob");

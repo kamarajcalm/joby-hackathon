@@ -63,14 +63,15 @@ const OtpScreen = () => {
     if (key === "Backspace" && index !== 0) inputRef.current[index - 1].focus();
   };
   return (
-    <View
-  
-    >
+    <View>
       <ScrollView>
         <View
           style={{ height: height * 0.08, paddingLeft: 30, paddingTop: 15 }}
         >
           <Pressable
+            _pressed={{
+              opacity: 0.5,
+            }}
             onPress={() => {
               navigation.goBack();
             }}
@@ -138,19 +139,21 @@ const OtpScreen = () => {
           </View>
 
           <Pressable
+            _pressed={{
+              opacity: 0.5,
+            }}
             style={styles.button}
             onPress={() => {
-                navigation.dispatch(
-                  CommonActions.reset({
-                    index: 0,
-                    routes: [
-                      {
-                        name: "TabNavigator",
-                      },
-                    ],
-                  })
-                ); 
-        
+              navigation.dispatch(
+                CommonActions.reset({
+                  index: 0,
+                  routes: [
+                    {
+                      name: "TabNavigator",
+                    },
+                  ],
+                })
+              );
             }}
           >
             <Text style={[textStyles.normal, { color: "#fff" }]}>
