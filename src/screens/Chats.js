@@ -75,11 +75,7 @@ const closeRow = (rowMap, rowKey) => {
     rowMap[rowKey].closeRow();
   }
 };
-useEffect(()=>{
-toast.show({
-    description:"Swipe left to delete chats"
-})
-},[])
+
 const deleteRow = (rowMap, rowKey) => {
   closeRow(rowMap, rowKey);
   const newData = [...listData];
